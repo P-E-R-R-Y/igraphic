@@ -3,7 +3,23 @@ project(igraphic)
 
 set(CMAKE_CXX_STANDARD 20)
 
+# Fetch igraphic (only if not already provided)
+include(FetchContent)
+# Check if it's already fetched
+FetchContent_GetProperties(system) 
+if (NOT igraphic_POPULATED)
+  # If not, fetch it
+  FetchContent_Declare(
+    system
+    GIT_REPOSITORY https://github.com/P-E-R-R-Y/system.git
+    GIT_TAG main #v0.1.0
+  )
+  FetchContent_MakeAvailable(system)
+endif()
+
 add_library(${PROJECT_NAME} STATIC no_source.cpp)
+
+target_link_libraries(${PROJECT_NAME} system) #math
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   window
