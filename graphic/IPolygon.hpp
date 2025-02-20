@@ -13,7 +13,6 @@
 #ifndef IPOLYGON_HPP_
     #define IPOLYGON_HPP_
     #include "type.hpp"
-    #include "geometry.hpp"
     #include "../window/IWindow.hpp"
 
     #include <vector>
