@@ -12,9 +12,11 @@
 
 #ifndef IPOLYGON_HPP_
     #define IPOLYGON_HPP_
-    #include "../../../libraries/system/type.hpp"
+    #include "type.hpp"
     #include "../../../libraries/maths/geometry.hpp"
     #include "../window/IWindow.hpp"
+
+    #include <vector>
 
 using namespace type;
 
