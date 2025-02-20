@@ -12,7 +12,7 @@
 #ifndef IMUSIC_HPP_
     #define IMUSIC_HPP_
 
-    #include "../../../libraries/system/type.hpp"
+    #include "type.hpp"
     #include <string>
 
 namespace graphic {

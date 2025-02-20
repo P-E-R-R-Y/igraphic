@@ -12,7 +12,7 @@
 #ifndef ISOUND_HPP_
     #define ISOUND_HPP_
 
-    #include "../../../libraries/system/type.hpp"
+    #include "type.hpp"
     #include <string>
 
 namespace graphic {

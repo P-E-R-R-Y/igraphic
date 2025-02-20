@@ -12,7 +12,7 @@
 #ifndef IMOUSE_HPP_
 #define IMOUSE_HPP_
   
-#include "../../../libraries/system/type.hpp"
+#include "type.hpp"
 
 namespace graphic {
 

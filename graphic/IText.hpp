@@ -12,7 +12,7 @@
 #ifndef ITEXT_HPP_
     #define ITEXT_HPP_
 
-    #include "../../../libraries/system/type.hpp"
+    #include "type.hpp"
     #include <string>
 
 namespace graphic {

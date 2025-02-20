@@ -11,7 +11,7 @@
 
 #ifndef ISPRITE_HPP_
     #define ISPRITE_HPP_
-    #include "../../../libraries/system/type.hpp"
+    #include "type.hpp"
     #include "../window/IWindow.hpp"
 
 namespace graphic {

@@ -14,7 +14,7 @@
 
 #ifndef IMODEL_HPP_
     #define IMODEL_HPP_
-    #include "../../../libraries/system/type.hpp"
+    #include "type.hpp"
     #include "../window/IWindow.hpp"
 
 namespace graphic {
