@@ -31,7 +31,7 @@ endif()
 
 add_library(${PROJECT_NAME} STATIC no_source.cpp)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC system math)
+target_link_libraries(${PROJECT_NAME} PUBLIC system maths)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   window
