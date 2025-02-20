@@ -14,9 +14,9 @@ add_library(${PROJECT_NAME} STATIC no_source.cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC system)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-  ${CMAKE_SOURCE_DIR}/window
-  ${CMAKE_SOURCE_DIR}/graphic
-  ${CMAKE_SOURCE_DIR}/event
-  ${CMAKE_SOURCE_DIR}/audio
-  ${CMAKE_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/window
+  ${CMAKE_CURRENT_SOURCE_DIR}/graphic
+  ${CMAKE_CURRENT_SOURCE_DIR}/event
+  ${CMAKE_CURRENT_SOURCE_DIR}/audio
+  ${CMAKE_CURRENT_SOURCE_DIR}
 )
