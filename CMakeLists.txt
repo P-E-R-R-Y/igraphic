@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 include(FetchContent)
 # Check if it's already fetched
 FetchContent_GetProperties(system) 
-if (NOT igraphic_POPULATED)
+if (NOT system_POPULATED)
   # If not, fetch it
   FetchContent_Declare(
     system
