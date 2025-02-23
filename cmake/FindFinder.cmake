@@ -1,4 +1,4 @@
-set(name system)
+set(name finder)
 
 include(FetchContent)
 # Check if it's already fetched
