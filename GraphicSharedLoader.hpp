@@ -12,8 +12,7 @@
 #ifndef GRAPHIC_SHARED_LOADER_HPP
 #define GRAPHIC_SHARED_LOADER_HPP
 
-#include "../../core/ICore.hpp"
-#include "../window/IWindow.hpp"
+#include "window/IWindow.hpp"
 
 #include "event/IEvent.hpp"
 #include "event/IKeyboard.hpp"
@@ -29,8 +28,7 @@
 #include "window/ICamera.hpp"
 #include "graphic/IModel.hpp"
 
-#include "../../../libraries/finder/DynamicLoader.hpp"
-#include "../InfoSharedLoader.hpp"
+#include "DynamicLoader.hpp"
 #include <typeinfo>
 
 /**
