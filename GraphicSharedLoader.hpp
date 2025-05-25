@@ -50,13 +50,11 @@ namespace graphic {
              */
             GraphicSharedLoader(std::string file): dl(file) {
                 // Check if the shared library is a graphic library
-                std::cout << "A" << std::endl;
 
                 if (!dl.isReady() || std::string(reinterpret_cast<char *(*)()>(dl.findSymbol("getType"))()) != std::string("graphic")) {
                     std::cerr << "Failed to load: " << file << std::endl;
                     return;
                 }
-                std::cout << "A" << std::endl;
                 //Core
                 createWindow = reinterpret_cast<graphic::IWindow *(*)(__int32_t, __int32_t, std::string)>(dl.findSymbol("createWindow"));
                 deleteWindow = reinterpret_cast<void (*)(graphic::IWindow *window)>(dl.findSymbol("deleteWindow"));
