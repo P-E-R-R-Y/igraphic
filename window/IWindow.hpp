@@ -16,9 +16,9 @@
     #include "../graphic/ISprite.hpp"
     #include "../graphic/IText.hpp"
     #include "../event/IEvent.hpp"
-    #include "ICamera.hpp"
 
 namespace graphic {
+    class ICamera;
 
     /**
      * @brief Window interface
