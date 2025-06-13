@@ -29,8 +29,8 @@ namespace graphic {
             //constructor
             virtual ~IModel() = default;
             //p
-            virtual __v3f_t getPosition() const = 0;
-            virtual void setPosition(__v3f_t position) = 0;
+            virtual type::__v3f_t getPosition() const = 0;
+            virtual void setPosition(type::__v3f_t position) = 0;
 
         private:
             //your variables here

@@ -8,12 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
 find_package(system REQUIRED)
-find_package(finder REQUIRED)
 
 # library
 add_library(${PROJECT_NAME} STATIC no_source.cpp)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC system finder)
+target_link_libraries(${PROJECT_NAME} PUBLIC system)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/window

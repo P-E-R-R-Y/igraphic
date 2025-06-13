@@ -79,14 +79,14 @@ namespace graphic {
              * 
              * @return __v2f_t 
              */
-            virtual __v2f_t getPosition() const = 0;
+            virtual type::__v2f_t getPosition() const = 0;
             
             /**
              * @brief set the position of the mouse
              * 
              * @param position 
              */
-            virtual void setPosition(__v2f_t position) = 0;
+            virtual void setPosition(type::__v2f_t position) = 0;
             
             /**
              * @brief get the mouse wheel move
