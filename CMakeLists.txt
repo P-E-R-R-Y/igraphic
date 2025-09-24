@@ -54,7 +54,6 @@ target_include_directories(${PROJECT_NAME}_tests PUBLIC
 
 target_link_libraries(${PROJECT_NAME}_tests 
 	gtest_main
-  imodule system
 	${PROJECT_NAME}
 )
 
