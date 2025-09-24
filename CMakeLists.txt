@@ -8,18 +8,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ----------- project -----------
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(imodule REQUIRED)
 find_package(system REQUIRED)
-
-# ----------- project -----------
 
 set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/sources/no_source.cpp)
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC imodule system)
+
 
 # ----------- include -----------
 
@@ -37,7 +36,6 @@ target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Werror)
 
 #----------- test -----------
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package(GoogleTest REQUIRED)
 
 enable_testing()
