@@ -2,7 +2,6 @@
  * @file IModel.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
  * @date 2025-01-29
  * 
  * @addtogroup graphic
@@ -29,8 +28,8 @@ namespace graphic {
             //constructor
             virtual ~IModel() = default;
             //p
-            virtual type::__v3f_t getPosition() const = 0;
-            virtual void setPosition(type::__v3f_t position) = 0;
+            virtual Vector3f getPosition() const = 0;
+            virtual void setPosition(Vector3f position) = 0;
 
         private:
             //your variables here

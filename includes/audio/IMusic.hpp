@@ -2,8 +2,7 @@
  * @file IAudio.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
- * @date 2025-02-02
+ * @date 2025-09-24
  * 
  * @addtogroup graphic
  * @{

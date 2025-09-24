@@ -2,8 +2,7 @@
  * @file IMouse.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
- * @date 2025-01-29
+ * @date 2025-09-24
  * 
  * @addtogroup graphic
  * @{
@@ -77,16 +76,16 @@ namespace graphic {
             /**
              * @brief get the position of the mouse
              * 
-             * @return __v2f_t 
+             * @return Vector2f 
              */
-            virtual type::__v2f_t getPosition() const = 0;
+            virtual Vector2f getPosition() const = 0;
             
             /**
              * @brief set the position of the mouse
              * 
              * @param position 
              */
-            virtual void setPosition(type::__v2f_t position) = 0;
+            virtual void setPosition(Vector2f position) = 0;
             
             /**
              * @brief get the mouse wheel move

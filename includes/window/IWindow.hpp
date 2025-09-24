@@ -1,9 +1,8 @@
 /**
  * @file IWindow.hpp
- * @author @Perry-Chouteau (perry.chouteau@outlook.com)
+ * @author Perry Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
- * @date 2025-01-29
+ * @date 2025-09-24
  * 
  * @addtogroup graphic
  * @{
@@ -25,6 +24,7 @@ namespace graphic {
      * @interface IWindow 
      */
     class IWindow {
+            
 
         public:
 
@@ -50,14 +50,14 @@ namespace graphic {
              * 
              * @param limit 
              */
-            virtual void setFrameLimit(__int32_t limit) = 0;
+            virtual void setFrameLimit(int32_t limit) = 0;
 
             /**
              * @brief Get the Delta object
              * 
              * @return __int32_t 
              */
-            virtual __int32_t getDelta() = 0;
+            virtual int32_t getDelta() = 0;
 
             /**
              * @brief link an event to the window

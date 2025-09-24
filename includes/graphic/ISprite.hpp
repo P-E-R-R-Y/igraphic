@@ -2,7 +2,6 @@
  * @file ISprite.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
  * @date 2025-01-29
  * 
  * @addtogroup graphic
@@ -39,30 +38,30 @@ namespace graphic {
             /**
              * @brief give the bounds of the sprite
              * 
-             * @return __v4f_t
+             * @return Vector4f
              */
-            virtual __v4f_t getBounds() const = 0;
+            virtual Vector4f getBounds() const = 0;
             
             /**
              * @brief Crop the sprite with a rectangle
              * 
              * @param rect
              */
-            virtual void setCrop(__v4f_t rect) = 0;
+            virtual void setCrop(Vector4f rect) = 0;
             
             /**
              * @brief Get the Position object
              * 
-             * @return __v2f_t
+             * @return Vector2f
              */
-            virtual __v2f_t getPosition() const = 0;
+            virtual Vector2f getPosition() const = 0;
 
             /**
              * @brief Set the Position object
              * 
              * @param position
              */
-            virtual void setPosition(__v2f_t position) = 0;
+            virtual void setPosition(Vector2f position) = 0;
             
             /**
              * @brief Get the Rotation object
@@ -82,16 +81,16 @@ namespace graphic {
             /**
              * @brief Get the Sprite size
              * 
-             * @return __v2f_t
+             * @return Vector4f
              */
-            virtual __v2f_t getSize() const = 0;
+            virtual Vector2f getSize() const = 0;
 
             /**
              * @brief Set the Sprite size
              * 
              * @param size
              */
-            virtual void setSize(__v2f_t size) = 0;
+            virtual void setSize(Vector2f size) = 0;
 
     };
 

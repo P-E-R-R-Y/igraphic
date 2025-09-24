@@ -2,7 +2,6 @@
  * @file IText.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
  * @date 2025-02-01
  * 
  * @addtogroup graphic
@@ -74,28 +73,28 @@ namespace graphic {
              * 
              * @param color 
              */
-            virtual void setTextColor(__color_t color) = 0;
+            virtual void setTextColor(Color color) = 0;
 
             /**
              * @brief Get the Text Color text
              * 
-             * @return __v4f_t 
+             * @return Color 
              */
-            virtual __color_t getTextColor() const = 0;
+            virtual Color getTextColor() const = 0;
 
             /**
              * @brief Set the Position text
              * 
              * @param position 
              */
-            virtual void setPosition(__v2f_t position) = 0;
+            virtual void setPosition(Vector2f position) = 0;
 
             /**
              * @brief Get the Position text
              * 
-             * @return __v2f_t 
+             * @return Vector2f 
              */
-            virtual __v2f_t getPosition() const = 0;
+            virtual Vector2f getPosition() const = 0;
 
             /**
              * @brief Set the Rotation object

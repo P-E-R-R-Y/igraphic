@@ -2,7 +2,6 @@
  * @file IPolygon.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
  * @date 2025-01-29
  * 
  * @addtogroup graphic
@@ -17,17 +16,15 @@
 
     #include <vector>
 
-using namespace type;
-
 namespace graphic {
     
     /**
      * @brief Triangle structure
      */
     typedef struct triangle_s {
-        __v2f_t A;
-        __v2f_t B;
-        __v2f_t C;
+        Vector2f A;
+        Vector2f B;
+        Vector2f C;
     } triangle_t;
 
     /**
@@ -46,44 +43,44 @@ namespace graphic {
             /**
              * @brief Get the Color object
              * 
-             * @return __color_t 
+             * @return Color 
              */
-            virtual __color_t getColor() const = 0;
+            virtual Color getColor() const = 0;
 
             /**
              * @brief Set the Color object
              * 
              * @param position 
              */
-            virtual void setColor(__color_t position) = 0;
+            virtual void setColor(Color position) = 0;
             
             /**
              * @brief Get the Position object
              * 
-             * @return __v2f_t 
+             * @return Vector2f 
              */
             virtual bool isReady() const = 0;
             
             /**
              * @brief Get the Position object
              * 
-             * @return __v2f_t 
+             * @return Vector2f 
              */
-            virtual __v2f_t getPosition() const = 0;
+            virtual Vector2f getPosition() const = 0;
             
             /**
              * @brief Set the Position object
              * 
              * @param position 
              */
-            virtual void setPosition(__v2f_t position) = 0;
+            virtual void setPosition(Vector2f position) = 0;
             
             /**
              * @brief Get the Points object
              * 
-             * @return std::vector<__v2f_t> 
+             * @return std::vector<Vector2f> 
              */
-            virtual std::vector<__v2f_t> getPoints() const = 0;
+            virtual std::vector<Vector2f> getPoints() const = 0;
     };
 
 } // namespace graphic

@@ -2,7 +2,6 @@
  * @file ICamera.hpp
  * @author @Perry-Chouteau (perry.chouteau@outlook.com)
  * @brief 
- * @version 0.1
  * @date 2025-01-29
  * 
  * @addtogroup graphic
@@ -73,21 +72,21 @@ namespace graphic {
             /**
              * @brief Get the position
              * 
-             * @return __v3f_t
+             * @return Vector3f
              */
-            virtual __v3f_t getPosition() const = 0;
+            virtual Vector3f getPosition() const = 0;
 
             /**
              * @brief Set the position
              * 
              * @param position 
              */
-            virtual void setPosition(__v3f_t position) = 0;
+            virtual void setPosition(Vector3f position) = 0;
 
             /**
              * @brief Get the Projection
              * 
-             * @return __v3f_t
+             * @return Vector3f
              */
             virtual Projection getProjection() const = 0;
 
@@ -101,30 +100,30 @@ namespace graphic {
             /**
              * @brief Get the target
              * 
-             * @return __v3f_t
+             * @return Vector3f
              */
-            virtual __v3f_t getTarget() const = 0;
+            virtual Vector3f getTarget() const = 0;
 
             /**
              * @brief Set the target
              * 
              * @param size
              */
-            virtual void setTarget(__v3f_t size) = 0;
+            virtual void setTarget(Vector3f size) = 0;
             
             /**
              * @brief Get the up vector
              * 
-             * @return __v3f_t
+             * @return Vector3f
              */
-            virtual __v3f_t getUp() const = 0;
+            virtual Vector3f getUp() const = 0;
 
             /**
              * @brief Set the up vector
              * 
              * @param up
              */
-            virtual void setUp(__v3f_t up) = 0;
+            virtual void setUp(Vector3f up) = 0;
 
         private:
             //your variables here
