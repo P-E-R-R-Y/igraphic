@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-find_package(IModule REQUIRED)
+find_package(imodule REQUIRED)
 find_package(system REQUIRED)
 
 set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/sources/no_source.cpp)
