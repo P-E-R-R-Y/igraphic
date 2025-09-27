@@ -9,9 +9,7 @@ public:
     bool isOpen() override {
         return {};
     }
-    void close() override {
-        // no-op
-    }
+
     void setFrameLimit(__int32_t limit) override {
         // no-op
     }

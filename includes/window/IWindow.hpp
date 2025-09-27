@@ -41,11 +41,6 @@ namespace graphic {
             virtual bool isOpen() = 0;
 
             /**
-             * @brief close the window
-             */
-            virtual void close() = 0;
-
-            /**
              * @brief Set the Frame Limit object
              * 
              * @param limit 
