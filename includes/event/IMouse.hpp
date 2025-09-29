@@ -93,13 +93,6 @@ namespace graphic {
              * @return float 
              */
             virtual float GetMouseWheelMove() const = 0;
-            
-            /**
-             * @brief set the mouse wheel move
-             * 
-             * @param move 
-             */
-            virtual void update() = 0;
     };
 
 } // namespace graphic3

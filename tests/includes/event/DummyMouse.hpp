@@ -19,6 +19,5 @@ public:
     void setPosition(Vector2f position) override {}
             
     float GetMouseWheelMove() const override {return 0;}
-            
-    void update() override {}
+
 };

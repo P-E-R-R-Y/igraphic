@@ -21,11 +21,11 @@ namespace graphic {
     /**
      * @brief Triangle structure
      */
-    typedef struct triangle_s {
+    struct Triangle {
         Vector2f A;
         Vector2f B;
         Vector2f C;
-    } triangle_t;
+    };
 
     /**
      * @brief Polygon interface

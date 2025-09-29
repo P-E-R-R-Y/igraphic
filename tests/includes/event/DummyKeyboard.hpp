@@ -13,5 +13,4 @@ public:
         bool isKeyReleased(Keys key) const override {return false;}
         bool isKeyDown(Keys key) const override {return false;}
         bool isKeyUp(Keys key) const override {return false;}
-        void update() override {}
 };

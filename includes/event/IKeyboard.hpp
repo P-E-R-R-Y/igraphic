@@ -186,11 +186,6 @@ namespace graphic {
          */
         virtual bool isKeyUp(Keys key) const = 0;
         
-        /**
-         * @brief Update the keyboard
-         */
-        virtual void update() = 0;
-
       private:
     };
 
