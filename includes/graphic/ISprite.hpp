@@ -40,14 +40,14 @@ namespace graphic {
              * 
              * @return Vector4f
              */
-            virtual Vector4f getBounds() const = 0;
+            virtual Rect<float> getBounds() const = 0;
             
             /**
              * @brief Crop the sprite with a rectangle
              * 
              * @param rect
              */
-            virtual void setCrop(Vector4f rect) = 0;
+            virtual void setCrop(Rect<float> rect) = 0;
             
             /**
              * @brief Get the Position object
