@@ -11,7 +11,7 @@
 #ifndef ISOUND_HPP_
     #define ISOUND_HPP_
 
-    #include "type.hpp"
+    #include "Type.hpp"
     #include <string>
 
 namespace graphic {

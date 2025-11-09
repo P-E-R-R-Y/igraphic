@@ -10,7 +10,7 @@
 
 #ifndef ISPRITE_HPP_
     #define ISPRITE_HPP_
-    #include "type.hpp"
+    #include "Type.hpp"
     #include "../window/IWindow.hpp"
 
 namespace graphic {

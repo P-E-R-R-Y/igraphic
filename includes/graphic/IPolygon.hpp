@@ -11,7 +11,7 @@
 
 #ifndef IPOLYGON_HPP_
     #define IPOLYGON_HPP_
-    #include "type.hpp"
+    #include "Type.hpp"
     #include "../window/IWindow.hpp"
 
     #include <vector>

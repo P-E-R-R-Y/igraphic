@@ -11,7 +11,7 @@
 #ifndef ITEXT_HPP_
     #define ITEXT_HPP_
 
-    #include "type.hpp"
+    #include "Type.hpp"
     #include <string>
 
 namespace graphic {

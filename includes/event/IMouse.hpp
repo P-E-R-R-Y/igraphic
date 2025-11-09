@@ -11,7 +11,7 @@
 #ifndef IMOUSE_HPP_
 #define IMOUSE_HPP_
   
-#include "type.hpp"
+#include "Type.hpp"
 
 namespace graphic {
 

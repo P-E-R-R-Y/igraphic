@@ -11,7 +11,7 @@
 
 #ifndef ICAMERA_HPP_
     #define ICAMERA_HPP_
-    #include "type.hpp"
+    #include "Type.hpp"
     #include "IWindow.hpp"
 
 namespace graphic {

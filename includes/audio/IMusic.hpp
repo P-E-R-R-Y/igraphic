@@ -11,7 +11,7 @@
 #ifndef IMUSIC_HPP_
     #define IMUSIC_HPP_
 
-    #include "type.hpp"
+    #include "Type.hpp"
     #include <string>
 
 namespace graphic {

@@ -4,7 +4,7 @@
 #include "DummyGraphicModule.hpp"
 
 #include <vector>
-#include "type.hpp"
+#include "Type.hpp"
 
 TEST(GraphicModuleTest, RegisterAndRetrieve) {
     ModuleRegistry registry;
