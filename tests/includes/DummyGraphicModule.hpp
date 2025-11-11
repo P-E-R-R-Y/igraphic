@@ -36,7 +36,7 @@ public:
     graphic::IWindow* createWindow(int32_t, int32_t, std::string) override { return new DummyWindow(); }
     void deleteWindow(graphic::IWindow* w) override { delete w; }
 
-    graphic::IModel* createModel() override { return new DummyModel(); }
+    graphic::IModel* createModel(std::string model) override { return new DummyModel(model); }
     void deleteModel(graphic::IModel* m) override { delete m; }
 
     graphic::IPolygon* createPolygon(std::vector<Vector2f>) override { return new DummyPolygon(); }

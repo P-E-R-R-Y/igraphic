@@ -47,7 +47,7 @@ TEST(GraphicModuleTest, GraphicObject) {
     graphic::IKeyboard* keyboard = mod->createKeyboard(event);
     graphic::IMouse* mouse = mod->createMouse(event);
 
-    graphic::IModel *model = mod->createModel();
+    graphic::IModel *model = mod->createModel("");
     graphic::IPolygon *polygon = mod->createPolygon(std::vector<Vector2f>());
     graphic::ISprite* sprite = mod->createSprite("");
     graphic::IText *text = mod->createText("", "");

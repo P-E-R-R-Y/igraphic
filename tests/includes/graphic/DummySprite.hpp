@@ -9,10 +9,10 @@ public:
     bool isReady() const override {
         return {};
     }
-    Vector4f getBounds() const override {
+    Rect<float> getBounds() const override {
         return {};
     }
-    void setCrop(Vector4f rect) override {
+    void setCrop(Rect<float> rect) override {
         // no-op
     }
     Vector2f getPosition() const override {

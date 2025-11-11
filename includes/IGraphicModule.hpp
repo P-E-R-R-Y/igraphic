@@ -45,7 +45,7 @@ public:
     virtual void deleteCamera(graphic::ICamera *) = 0;
     
     // model
-    virtual graphic::IModel *createModel() = 0;
+    virtual graphic::IModel *createModel(std::string path) = 0;
     virtual void deleteModel(graphic::IModel *model) = 0;
 
     /* 2D */

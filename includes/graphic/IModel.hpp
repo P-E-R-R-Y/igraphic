@@ -27,9 +27,14 @@ namespace graphic {
         public:
             //constructor
             virtual ~IModel() = default;
+
+            virtual void setTexture(std::string path) = 0;
             //p
             virtual Vector3f getPosition() const = 0;
             virtual void setPosition(Vector3f position) = 0;
+            
+            virtual Vector3f getRotation() const = 0;
+            virtual void setRotation(Vector3f rotation) = 0;
 
         private:
             //your variables here
