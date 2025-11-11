@@ -41,7 +41,7 @@ public:
     /* 3D */
 
     // camera
-    virtual graphic::ICamera *createCamera() = 0;
+    virtual graphic::ICamera *createCamera(Vector3f position, Vector3f target, float fov) = 0;
     virtual void deleteCamera(graphic::ICamera *) = 0;
     
     // model

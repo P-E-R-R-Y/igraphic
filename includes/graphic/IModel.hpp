@@ -36,6 +36,9 @@ namespace graphic {
             virtual Vector3f getRotation() const = 0;
             virtual void setRotation(Vector3f rotation) = 0;
 
+            virtual Vector3f getSize() const = 0;
+            virtual void setSize(Vector3f size) = 0;
+
         private:
             //your variables here
     };
