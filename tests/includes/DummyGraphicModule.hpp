@@ -30,7 +30,7 @@ public:
 
     // Implement methods trivially to return PGenTest objects
 
-    graphic::ICamera* createCamera() override { return new DummyCamera(); }
+    graphic::ICamera* createCamera(Vector3f position, Vector3f target, float fov) override { return new DummyCamera(); }
     void deleteCamera(graphic::ICamera* c) override { delete c; }
 
     graphic::IWindow* createWindow(int32_t, int32_t, std::string) override { return new DummyWindow(); }

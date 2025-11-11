@@ -29,7 +29,16 @@ public:
         rota = rotation;
     }
 
+    virtual Vector3f getSize() const override {
+        return rota;
+    }
+
+    virtual void setSize(Vector3f size) override {
+        siz = size;
+    }
+
 private:
     Vector3f pos;
     Vector3f rota;
+    Vector3f siz;
 };

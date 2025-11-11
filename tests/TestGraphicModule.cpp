@@ -52,7 +52,7 @@ TEST(GraphicModuleTest, GraphicObject) {
     graphic::ISprite* sprite = mod->createSprite("");
     graphic::IText *text = mod->createText("", "");
 
-    graphic::ICamera *camera = mod->createCamera();
+    graphic::ICamera *camera = mod->createCamera({0, 0, 0}, {0, 0, 0}, 0);
     graphic::IWindow *window = mod->createWindow(1, 1, "window");
     ASSERT_NE(music, nullptr);
     ASSERT_NE(sound, nullptr);
