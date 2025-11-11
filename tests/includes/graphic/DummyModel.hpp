@@ -13,6 +13,17 @@ public:
 
     }
 
+    void setAnimations(std::string path) override {
+    }
+    int getAnimationsSize() override {
+        return 0;
+    }
+    void setAnimation(int pos) override {
+    }
+    void updateAnimation() override {
+    }
+
+
     Vector3f getPosition() const override {
         return pos;
     }
