@@ -15,10 +15,13 @@ public:
 
     void setAnimations(std::string path) override {
     }
-    int getAnimationsSize() override {
+    int getAnimationsSize() const override {
         return 0;
     }
     void setAnimation(int pos) override {
+    }
+    int getAnimation() const override {
+        return 0;
     }
     void updateAnimation() override {
     }

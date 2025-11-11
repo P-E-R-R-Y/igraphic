@@ -31,8 +31,9 @@ namespace graphic {
             virtual void setTexture(std::string path) = 0;
 
             virtual void setAnimations(std::string path) = 0;
-            virtual int getAnimationsSize() = 0;
+            virtual int getAnimationsSize() const = 0;
             virtual void setAnimation(int pos) = 0;
+            virtual int getAnimation() const = 0;
             virtual void updateAnimation() = 0;
             //p
             virtual Vector3f getPosition() const = 0;
