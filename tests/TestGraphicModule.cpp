@@ -60,16 +60,22 @@ TEST(GraphicModuleTest, Graphic3ObjectAlsoDoes2D) {
     ASSERT_NE(sprite, nullptr);
     ASSERT_NE(window, nullptr);
 
+    graphic::IText *text = mod.createText("score: 0", "");
+    ASSERT_NE(text, nullptr);
+
     // an IWindow3 IS an IWindow2 : draws sprites too, not just models
     window->beginMode3(camera);
     window->drawModel(model);
+    window->drawText3D(text, {0, 1, 0}); // same IText, projected in world space
     window->endMode3();
     window->beginDraw();
     window->drawSprite(sprite);
+    window->drawText(text); // and still usable in screen space too
     window->endDraw();
 
     mod.deleteCamera(camera);
     mod.deleteModel(model);
     mod.deleteSprite(sprite);
+    mod.deleteText(text);
     mod.deleteWindow(window);
 }

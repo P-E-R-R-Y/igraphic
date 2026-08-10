@@ -43,6 +43,16 @@ namespace graphic {
             virtual void drawModel(IModel *model) = 0;
 
             /**
+             * @brief draw text at a 3D world position - the same IText used by
+             *        drawText(), just projected through the active camera
+             *        instead of drawn at a screen-space position.
+             *
+             * @param text
+             * @param position
+             */
+            virtual void drawText3D(IText *text, Vector3f position) = 0;
+
+            /**
              * @brief end the 3D drawing
              */
             virtual void endMode3() = 0;

@@ -66,6 +66,9 @@ public:
     void drawModel(graphic::IModel *model) override {
         // no-op
     }
+    void drawText3D(graphic::IText *text, Vector3f position) override {
+        // no-op
+    }
     void endMode3() override {
         // no-op
     }
