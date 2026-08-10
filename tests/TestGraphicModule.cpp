@@ -1,88 +1,75 @@
 #include <gtest/gtest.h>
 #include "IModule.hpp"
-#include "IGraphicModule.hpp"
-#include "DummyGraphicModule.hpp"
+#include "IGraphic2Module.hpp"
+#include "IGraphic3Module.hpp"
+#include "DummyGraphic2Module.hpp"
+#include "DummyGraphic3Module.hpp"
 
 #include <vector>
 #include "Type.hpp"
 
-TEST(GraphicModuleTest, RegisterAndRetrieve) {
-    ModuleRegistry registry;
+TEST(GraphicModuleTest, Graphic2Object) {
+    DummyGraphic2Module mod;
 
-    // Create and register
-    auto* module = new DummyGraphicModule();
-    registry.add(module);
+    EXPECT_STREQ(mod.name(), "DummyGraphic2");
+    EXPECT_STREQ(mod.type(), "graphic2d");
 
-    // Retrieve by name
-    std::vector<IModule*> graphicModules = registry.get("graphic");
-    ASSERT_EQ(graphicModules.size(), 1);
-    
-    IModule* retrievedBase = graphicModules[0];
-    ASSERT_NE(retrievedBase, nullptr);
-    
-    auto* retrieved = dynamic_cast<IGraphicModule*>(retrievedBase);
-    ASSERT_NE(retrieved, nullptr);
-    EXPECT_EQ(retrieved->getName(), "DummyGraphic");
-    EXPECT_EQ(retrieved->getType(), "graphic");
+    graphic::IPolygon *polygon = mod.createPolygon(std::vector<Vector2f>());
+    graphic::ISprite *sprite = mod.createSprite("");
+    graphic::IText *text = mod.createText("", "");
+    graphic::IWindow2 *window = mod.createWindow(1, 1, "window");
 
-    delete module; // cleanup manually, or use smart pointer in real app
-}
-
-TEST(GraphicModuleTest, GraphicObject) {
-    ModuleRegistry registry;
-
-    // Create and register
-    auto* mod = new DummyGraphicModule();
-    
-    ASSERT_NE(mod, nullptr);
-    EXPECT_EQ(mod->getName(), "DummyGraphic");
-    EXPECT_EQ(mod->getType(), "graphic");
-
-    // Use a method
-    //audio
-    graphic::IMusic* music = mod->createMusic("");
-    graphic::ISound* sound = mod->createSound("");
-    //event
-    graphic::IEvent* event = mod->createEvent();
-    graphic::IKeyboard* keyboard = mod->createKeyboard(event);
-    graphic::IMouse* mouse = mod->createMouse(event);
-
-    graphic::IModel *model = mod->createModel("");
-    graphic::IPolygon *polygon = mod->createPolygon(std::vector<Vector2f>());
-    graphic::ISprite* sprite = mod->createSprite("");
-    graphic::IText *text = mod->createText("", "");
-
-    graphic::ICamera *camera = mod->createCamera({0, 0, 0}, {0, 0, 0}, 0);
-    graphic::IWindow *window = mod->createWindow(1, 1, "window");
-    ASSERT_NE(music, nullptr);
-    ASSERT_NE(sound, nullptr);
-
-    ASSERT_NE(event, nullptr);
-    ASSERT_NE(keyboard, nullptr);
-    ASSERT_NE(mouse, nullptr);
-
-    ASSERT_NE(model, nullptr);
     ASSERT_NE(polygon, nullptr);
     ASSERT_NE(sprite, nullptr);
     ASSERT_NE(text, nullptr);
-
-    ASSERT_NE(camera, nullptr);
     ASSERT_NE(window, nullptr);
 
-    mod->deleteMusic(music);
-    mod->deleteSound(sound);
+    // a 2D window still hands out keyboard/mouse/gamepad - not gated by drawing capability
+    graphic::IKeyboard *keyboard = window->createKeyboard();
+    graphic::IMouse *mouse = window->createMouse();
+    graphic::IGamepad *gamepad = window->createGamepad();
 
-    mod->deleteKeyboard(keyboard);
-    mod->deleteMouse(mouse);
-    mod->deleteEvent(event);
+    ASSERT_NE(keyboard, nullptr);
+    ASSERT_NE(mouse, nullptr);
+    ASSERT_NE(gamepad, nullptr);
 
-    mod->deleteModel(model);
-    mod->deletePolygon(polygon);
-    mod->deleteSprite(sprite);
-    mod->deleteText(text);
+    window->deleteKeyboard(keyboard);
+    window->deleteMouse(mouse);
+    window->deleteGamepad(gamepad);
 
-    mod->deleteCamera(camera);
-    mod->deleteWindow(window);
+    mod.deletePolygon(polygon);
+    mod.deleteSprite(sprite);
+    mod.deleteText(text);
+    mod.deleteWindow(window);
+}
 
-    delete mod; // cleanup manually, or use smart pointer in real app
+TEST(GraphicModuleTest, Graphic3ObjectAlsoDoes2D) {
+    DummyGraphic3Module mod;
+
+    EXPECT_STREQ(mod.name(), "DummyGraphic3");
+    EXPECT_STREQ(mod.type(), "graphic3d");
+
+    graphic::ICamera *camera = mod.createCamera({0, 0, 0}, {0, 0, 0}, 0);
+    graphic::IModel *model = mod.createModel("");
+    // still available : IGraphic3Module extends IGraphic2Module
+    graphic::ISprite *sprite = mod.createSprite("");
+    graphic::IWindow3 *window = mod.createWindow(1, 1, "window");
+
+    ASSERT_NE(camera, nullptr);
+    ASSERT_NE(model, nullptr);
+    ASSERT_NE(sprite, nullptr);
+    ASSERT_NE(window, nullptr);
+
+    // an IWindow3 IS an IWindow2 : draws sprites too, not just models
+    window->beginMode3(camera);
+    window->drawModel(model);
+    window->endMode3();
+    window->beginDraw();
+    window->drawSprite(sprite);
+    window->endDraw();
+
+    mod.deleteCamera(camera);
+    mod.deleteModel(model);
+    mod.deleteSprite(sprite);
+    mod.deleteWindow(window);
 }

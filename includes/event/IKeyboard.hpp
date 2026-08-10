@@ -12,7 +12,6 @@
 #define IKEYBOARD_HPP
 
 #include <vector>
-#include "IEvent.hpp"
 
 namespace graphic {
 

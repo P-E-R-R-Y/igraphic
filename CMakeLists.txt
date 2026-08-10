@@ -27,7 +27,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/includes/window
   ${CMAKE_CURRENT_SOURCE_DIR}/includes/graphic
   ${CMAKE_CURRENT_SOURCE_DIR}/includes/event
-  ${CMAKE_CURRENT_SOURCE_DIR}/includes/audio
 )
 
 #----------- dev -----------
@@ -49,7 +48,6 @@ target_include_directories(${PROJECT_NAME}_tests PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/includes/window
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/includes/graphic
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/includes/event
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/includes/audio
 )
 
 target_link_libraries(${PROJECT_NAME}_tests 
