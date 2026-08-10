@@ -14,15 +14,30 @@ TEST(GraphicModuleTest, Graphic2Object) {
     EXPECT_STREQ(mod.name(), "DummyGraphic2");
     EXPECT_STREQ(mod.type(), "graphic2d");
 
+    graphic::ITexture *texture = mod.createTexture("player.png");
+    graphic::IFont *font = mod.createFont("arial.ttf");
+    ASSERT_NE(texture, nullptr);
+    ASSERT_NE(font, nullptr);
+
     graphic::IPolygon *polygon = mod.createPolygon(std::vector<Vector2f>());
-    graphic::ISprite *sprite = mod.createSprite("");
-    graphic::IText *text = mod.createText("", "");
+    graphic::ISprite *sprite = mod.createSprite(texture);
+    graphic::IText *text = mod.createText("", font);
     graphic::IWindow2 *window = mod.createWindow(1, 1, "window");
 
     ASSERT_NE(polygon, nullptr);
     ASSERT_NE(sprite, nullptr);
     ASSERT_NE(text, nullptr);
     ASSERT_NE(window, nullptr);
+
+    // deleting the sprite/text never touches the texture/font they came from
+    mod.deleteSprite(sprite);
+    mod.deleteText(text);
+
+    // texture/font are still alive : build a second sprite/text from them
+    graphic::ISprite *sprite2 = mod.createSprite(texture);
+    graphic::IText *text2 = mod.createText("again", font);
+    ASSERT_NE(sprite2, nullptr);
+    ASSERT_NE(text2, nullptr);
 
     // a 2D window still hands out keyboard/mouse/gamepad - not gated by drawing capability
     graphic::IKeyboard *keyboard = window->createKeyboard();
@@ -38,9 +53,11 @@ TEST(GraphicModuleTest, Graphic2Object) {
     window->deleteGamepad(gamepad);
 
     mod.deletePolygon(polygon);
-    mod.deleteSprite(sprite);
-    mod.deleteText(text);
+    mod.deleteSprite(sprite2);
+    mod.deleteText(text2);
     mod.deleteWindow(window);
+    mod.deleteTexture(texture);
+    mod.deleteFont(font);
 }
 
 TEST(GraphicModuleTest, Graphic3ObjectAlsoDoes2D) {
@@ -49,10 +66,23 @@ TEST(GraphicModuleTest, Graphic3ObjectAlsoDoes2D) {
     EXPECT_STREQ(mod.name(), "DummyGraphic3");
     EXPECT_STREQ(mod.type(), "graphic3d");
 
+    graphic::ITexture *texture = mod.createTexture("player.png");
+    graphic::IFont *font = mod.createFont("arial.ttf");
+    ASSERT_NE(texture, nullptr);
+    ASSERT_NE(font, nullptr);
+
     graphic::ICamera *camera = mod.createCamera({0, 0, 0}, {0, 0, 0}, 0);
-    graphic::IModel *model = mod.createModel("");
+
+    graphic::IMesh *mesh = mod.createMesh("zombie.glb");
+    graphic::IAnimationSet *animations = mod.createAnimationSet("zombie.glb");
+    ASSERT_NE(mesh, nullptr);
+    ASSERT_NE(animations, nullptr);
+
+    graphic::IModel *model = mod.createModel(mesh);
+    model->setTexture(texture); // same ITexture, reused on a model too
+    model->setAnimations(animations);
     // still available : IGraphic3Module extends IGraphic2Module
-    graphic::ISprite *sprite = mod.createSprite("");
+    graphic::ISprite *sprite = mod.createSprite(texture);
     graphic::IWindow3 *window = mod.createWindow(1, 1, "window");
 
     ASSERT_NE(camera, nullptr);
@@ -60,7 +90,7 @@ TEST(GraphicModuleTest, Graphic3ObjectAlsoDoes2D) {
     ASSERT_NE(sprite, nullptr);
     ASSERT_NE(window, nullptr);
 
-    graphic::IText *text = mod.createText("score: 0", "");
+    graphic::IText *text = mod.createText("score: 0", font);
     ASSERT_NE(text, nullptr);
 
     // an IWindow3 IS an IWindow2 : draws sprites too, not just models
@@ -73,9 +103,20 @@ TEST(GraphicModuleTest, Graphic3ObjectAlsoDoes2D) {
     window->drawText(text); // and still usable in screen space too
     window->endDraw();
 
-    mod.deleteCamera(camera);
+    // deleting the model never touches its mesh/animations - a second
+    // zombie can reuse both without reloading from disk
     mod.deleteModel(model);
+    graphic::IModel *model2 = mod.createModel(mesh);
+    model2->setAnimations(animations);
+    ASSERT_NE(model2, nullptr);
+
+    mod.deleteCamera(camera);
+    mod.deleteModel(model2);
+    mod.deleteMesh(mesh);
+    mod.deleteAnimationSet(animations);
     mod.deleteSprite(sprite);
     mod.deleteText(text);
     mod.deleteWindow(window);
+    mod.deleteTexture(texture);
+    mod.deleteFont(font);
 }

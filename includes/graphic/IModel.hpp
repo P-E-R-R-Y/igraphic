@@ -15,12 +15,14 @@
     #define IMODEL_HPP_
     #include "Type.hpp"
     #include "../window/IWindow.hpp"
+    #include "IAnimationSet.hpp"
+    #include "ITexture.hpp"
 
 namespace graphic {
 
     /**
      * @brief Model interface
-     * @interface IModel 
+     * @interface IModel
      */
     class IModel {
 
@@ -28,9 +30,13 @@ namespace graphic {
             //constructor
             virtual ~IModel() = default;
 
-            virtual void setTexture(std::string path) = 0;
+            // a loaded ITexture, not a path - swapping a model's texture
+            // never implies a reload from disk
+            virtual void setTexture(ITexture *texture) = 0;
 
-            virtual void setAnimations(std::string path) = 0;
+            // a loaded IAnimationSet, not a path - swapping a model's
+            // animations never implies a reload from disk
+            virtual void setAnimations(IAnimationSet *animations) = 0;
             virtual int getAnimationsSize() const = 0;
             virtual void setAnimation(int pos) = 0;
             virtual int getAnimation() const = 0;

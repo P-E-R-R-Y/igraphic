@@ -12,6 +12,7 @@
     #define ITEXT_HPP_
 
     #include "Type.hpp"
+    #include "IFont.hpp"
     #include <string>
 
 namespace graphic {
@@ -48,11 +49,12 @@ namespace graphic {
             virtual std::string getText() const = 0;
 
             /**
-             * @brief Set the Font value
-             * 
-             * @param font 
+             * @brief Set the Font value - a loaded IFont, not a path, so
+             *        changing font never implies a reload from disk.
+             *
+             * @param font
              */
-            virtual void setFont(std::string path) = 0;
+            virtual void setFont(IFont *font) = 0;
 
             /**
              * @brief Set the Font Size text

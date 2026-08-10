@@ -15,7 +15,7 @@ public:
     std::string getText() const override {
         return {};
     }
-    void setFont(std::string path) override {
+    void setFont(graphic::IFont *font) override {
         // no-op
     }
     void setFontSize(unsigned int size) override {

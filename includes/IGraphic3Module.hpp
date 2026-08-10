@@ -17,6 +17,8 @@
 #include "window/ICamera.hpp"
 #include "window/IWindow3.hpp"
 
+#include "graphic/IAnimationSet.hpp"
+#include "graphic/IMesh.hpp"
 #include "graphic/IModel.hpp"
 
 class IGraphic3Module : public IGraphic2Module {
@@ -32,8 +34,14 @@ public:
     // camera
     virtual graphic::ICamera *createCamera(Vector3f position, Vector3f target, float fov) = 0;
     virtual void deleteCamera(graphic::ICamera *) = 0;
+    // mesh
+    virtual graphic::IMesh *createMesh(std::string path) = 0;
+    virtual void deleteMesh(graphic::IMesh *mesh) = 0;
+    // animation set
+    virtual graphic::IAnimationSet *createAnimationSet(std::string path) = 0;
+    virtual void deleteAnimationSet(graphic::IAnimationSet *animations) = 0;
     // model
-    virtual graphic::IModel *createModel(std::string path) = 0;
+    virtual graphic::IModel *createModel(graphic::IMesh *mesh) = 0;
     virtual void deleteModel(graphic::IModel *model) = 0;
 };
 

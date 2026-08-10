@@ -1,19 +1,20 @@
 #pragma once
 #include "IModel.hpp"
+#include "IMesh.hpp"
 
 class DummyModel : public graphic::IModel {
 public:
-    DummyModel(std::string model): pos{} {
-        
+    DummyModel(graphic::IMesh *mesh): pos{} {
+
     }
 
     ~DummyModel() {}
 
-    void setTexture(std::string path) override {
+    void setTexture(graphic::ITexture *texture) override {
 
     }
 
-    void setAnimations(std::string path) override {
+    void setAnimations(graphic::IAnimationSet *animations) override {
     }
     int getAnimationsSize() const override {
         return 0;
