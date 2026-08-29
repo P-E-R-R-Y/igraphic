@@ -24,7 +24,21 @@ public:
     int getAnimation() const override {
         return 0;
     }
-    void updateAnimation() override {
+    bool updateAnimation() override {
+        return false;
+    }
+    void setFrameRange(int first, int last) override {
+    }
+    int getFirstFrame() const override {
+        return 0;
+    }
+    int getLastFrame() const override {
+        return 0;
+    }
+    void setFrame(int frame) override {
+    }
+    int getFrame() const override {
+        return 0;
     }
 
 

@@ -4,7 +4,7 @@
  * @brief
  * @date 2026-08-10
  *
- * @addtogroup graphic
+ * @addtogroup igraphic
  * @{
  */
 
@@ -18,6 +18,10 @@ namespace graphic {
      *        terminal backend has no controller) - IWindow::createGamepad()
      *        returns nullptr in that case, this type itself stays complete.
      * @interface IGamepad
+     *
+     * Same rules as IKeyboard : isButtonPressed / isButtonReleased are true
+     * for one frame, isButtonDown / isButtonUp for as long as it lasts, and
+     * all four are read anywhere in the frame, as is getAxisMovement().
      */
     class IGamepad {
 
@@ -106,5 +110,7 @@ namespace graphic {
     };
 
 } // namespace graphic
+
+/** @} */
 
 #endif /* !IGAMEPAD_HPP_ */

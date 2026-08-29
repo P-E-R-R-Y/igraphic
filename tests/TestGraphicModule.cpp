@@ -39,18 +39,19 @@ TEST(GraphicModuleTest, Graphic2Object) {
     ASSERT_NE(sprite2, nullptr);
     ASSERT_NE(text2, nullptr);
 
-    // a 2D window still hands out keyboard/mouse/gamepad - not gated by drawing capability
-    graphic::IKeyboard *keyboard = window->createKeyboard();
-    graphic::IMouse *mouse = window->createMouse();
-    graphic::IGamepad *gamepad = window->createGamepad();
+    // le module cree les entrees, en recevant la fenetre - le lien est fait
+    // a la construction, comme une ITexture passee a un ISprite
+    graphic::IKeyboard *keyboard = mod.createKeyboard(window);
+    graphic::IMouse *mouse = mod.createMouse(window);
+    graphic::IGamepad *gamepad = mod.createGamepad(window);
 
     ASSERT_NE(keyboard, nullptr);
     ASSERT_NE(mouse, nullptr);
     ASSERT_NE(gamepad, nullptr);
 
-    window->deleteKeyboard(keyboard);
-    window->deleteMouse(mouse);
-    window->deleteGamepad(gamepad);
+    mod.deleteKeyboard(keyboard);
+    mod.deleteMouse(mouse);
+    mod.deleteGamepad(gamepad);
 
     mod.deletePolygon(polygon);
     mod.deleteSprite(sprite2);

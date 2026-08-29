@@ -4,7 +4,7 @@
  * @brief
  * @date 2026-08-10
  *
- * @addtogroup graphic
+ * @addtogroup igraphic
  * @{
  */
 
@@ -42,5 +42,7 @@ namespace graphic {
     };
 
 } // namespace graphic
+
+/** @} */
 
 #endif /* !ITEXTURE_HPP_ */

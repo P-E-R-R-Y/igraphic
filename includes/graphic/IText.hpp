@@ -1,10 +1,11 @@
 /**
  * @file IText.hpp
- * @author @Perry-Chouteau (perry.chouteau@outlook.com)
- * @brief 
+ * @author Perry Chouteau (perry.chouteau@outlook.com)
+ * @brief
  * @date 2025-02-01
- * 
- * @addtogroup graphic
+ *
+ * @addtogroup igraphic
+ * @{
  */
 
 
@@ -19,7 +20,7 @@ namespace graphic {
 
     /**
      * @brief Text interface
-     * 
+     *
      * @interface IText
      */
     class IText {
@@ -28,7 +29,7 @@ namespace graphic {
 
             /**
              * @brief Destroy the IText object
-             * 
+             *
              */
             virtual ~IText() = default;
 
@@ -36,15 +37,15 @@ namespace graphic {
 
             /**
              * @brief Set the Text value
-             * 
-             * @param text 
+             *
+             * @param text
              */
             virtual void setText(const std::string text) = 0;
 
             /**
              * @brief Get the Text value
-             * 
-             * @return std::string 
+             *
+             * @return std::string
              */
             virtual std::string getText() const = 0;
 
@@ -58,62 +59,64 @@ namespace graphic {
 
             /**
              * @brief Set the Font Size text
-             * 
-             * @param size 
+             *
+             * @param size
              */
             virtual void setFontSize(unsigned int size) = 0;
 
             /**
              * @brief Get the Font Size text
-             * 
-             * @return unsigned int 
+             *
+             * @return unsigned int
              */
             virtual unsigned int getFontSize() const = 0;
 
             /**
              * @brief Set the Text Color text
-             * 
-             * @param color 
+             *
+             * @param color
              */
             virtual void setTextColor(Color color) = 0;
 
             /**
              * @brief Get the Text Color text
-             * 
-             * @return Color 
+             *
+             * @return Color
              */
             virtual Color getTextColor() const = 0;
 
             /**
              * @brief Set the Position text
-             * 
-             * @param position 
+             *
+             * @param position
              */
             virtual void setPosition(Vector2f position) = 0;
 
             /**
              * @brief Get the Position text
-             * 
-             * @return Vector2f 
+             *
+             * @return Vector2f
              */
             virtual Vector2f getPosition() const = 0;
 
             /**
              * @brief Set the Rotation object
-             * 
-             * @param angle 
+             *
+             * @param angle
              */
             virtual void setRotation(float angle) = 0;
 
             /**
              * @brief Get the Rotation object
-             * 
-             * @return float 
+             *
+             * @return float
              */
             virtual float getRotation() const = 0;
 
     };
 
 }
+
+/** @} */
 
 #endif /* !ITEXT_HPP_ */

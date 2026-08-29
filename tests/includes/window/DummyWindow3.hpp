@@ -1,8 +1,5 @@
 #pragma once
 #include "IWindow3.hpp"
-#include "../event/DummyKeyboard.hpp"
-#include "../event/DummyMouse.hpp"
-#include "../event/DummyGamepad.hpp"
 
 class DummyWindow3 : public graphic::IWindow3 {
 public:
@@ -15,8 +12,23 @@ public:
     void close() override {
         // no-op
     }
+    Vector2f getPosition() override {
+        return {};
+    }
+    void setPosition(Vector2f position) override {
+        // no-op
+    }
+    Vector2f getSize() override {
+        return {};
+    }
+    void setSize(Vector2f size) override {
+        // no-op
+    }
     void setFrameLimit(int32_t limit) override {
         // no-op
+    }
+    void setMouseVisibility(bool visible) override {
+        _cursor = visible;
     }
     int32_t getDelta() override {
         return {};
@@ -26,24 +38,6 @@ public:
     }
     void eventClose() override {
         // no-op
-    }
-    graphic::IKeyboard *createKeyboard() override {
-        return new DummyKeyboard();
-    }
-    void deleteKeyboard(graphic::IKeyboard *keyboard) override {
-        delete keyboard;
-    }
-    graphic::IMouse *createMouse() override {
-        return new DummyMouse();
-    }
-    void deleteMouse(graphic::IMouse *mouse) override {
-        delete mouse;
-    }
-    graphic::IGamepad *createGamepad() override {
-        return new DummyGamepad();
-    }
-    void deleteGamepad(graphic::IGamepad *gamepad) override {
-        delete gamepad;
     }
     void beginDraw() override {
         // no-op
@@ -72,4 +66,7 @@ public:
     void endMode3() override {
         // no-op
     }
+
+    /// Le seul etat qu'il retient : de quoi verifier l'appel.
+    bool _cursor = true;
 };

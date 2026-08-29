@@ -4,12 +4,14 @@
  * @brief
  * @date 2026-08-10
  *
- * @addtogroup graphic
+ * @addtogroup igraphic
  * @{
  */
 
 #ifndef IANIMATIONSET_HPP_
     #define IANIMATIONSET_HPP_
+
+    #include <string>
 
 namespace graphic {
 
@@ -40,8 +42,30 @@ namespace graphic {
              * @return int
              */
             virtual int getSize() const = 0;
+
+            /**
+             * @brief The clip name, as it appears in the file.
+             *
+             * A Mixamo export often bakes every move into a single clip :
+             * the clip count therefore does not tell you the number of
+             * moves, and sub-sequences are marked nowhere.
+             *
+             * @param index
+             * @return std::string
+             */
+            virtual std::string getName(int index) const = 0;
+
+            /**
+             * @brief How many frames this clip has.
+             *
+             * @param index
+             * @return int
+             */
+            virtual int getFrameCount(int index) const = 0;
     };
 
 } // namespace graphic
+
+/** @} */
 
 #endif /* !IANIMATIONSET_HPP_ */

@@ -1,10 +1,10 @@
 /**
  * @file IKeyboard.hpp
- * @author @Perry-Chouteau (perry.chouteau@outlook.com)
- * @brief 
+ * @author Perry Chouteau (perry.chouteau@outlook.com)
+ * @brief
  * @date 2025-09-24
- * 
- * @addtogroup graphic
+ *
+ * @addtogroup igraphic
  * @{
  */
 
@@ -18,6 +18,62 @@ namespace graphic {
     /**
      * @brief Keyboard interface
      * @interface IKeyboard
+     *
+     * Four methods, two behaviours.
+     *
+     * isKeyPressed / isKeyReleased are true for ONE FRAME only, the one
+     * where the key changes state. Holding a key does not re-trigger
+     * isKeyPressed, even when the OS sends key repeat.
+     *
+     * isKeyDown / isKeyUp are true EVERY FRAME for as long as the key is
+     * held (or released).
+     *
+     * For a key pressed on frame 3 and released on frame 6 :
+     *
+     *     key             ______/‾‾‾‾‾‾‾‾‾‾‾\______
+     *     frame            1   2   3   4   5   6   7
+     *
+     *     isKeyDown        0   0   1   1   1   0   0
+     *     isKeyUp          1   1   0   0   0   1   1
+     *     isKeyPressed     0   0   1   0   0   0   0
+     *     isKeyReleased    0   0   0   0   0   1   0
+     *
+     * Hence the run / jump pair : isKeyDown(KEY_W) keeps moving while W is
+     * held, isKeyPressed(KEY_SPACE) jumps once. Jumping on isKeyDown jumps
+     * sixty times a second.
+     *
+     * All four are readable ANYWHERE in the frame, on every vendor : the
+     * window drains its queue once in pollEvent() and folds it into state,
+     * so nothing has to be read at a particular moment.
+     *
+     * @code
+     * while (window->isOpen()) {
+     *     if (window->pollEvent()) {             // the frame's event pump
+     *         window->eventClose();
+     *         if (kb->isKeyPressed(KEY_SPACE))   // a front
+     *             jump();
+     *     }
+     *
+     *     if (kb->isKeyDown(KEY_W))              // a state, outside
+     *         walk();
+     *
+     *     window->beginDraw();
+     *     // ...
+     *     window->endDraw();                     // end of frame
+     * }
+     * @endcode
+     *
+     * The condition is an optimisation, not a rule : with no event the
+     * fronts are false anyway. It only holds for the fronts - isKeyDown,
+     * isKeyUp and whichKeyDown() are true across frames where nothing
+     * happened, so putting them inside would silently drop them on a vendor
+     * that has a queue and keep them on one that has not.
+     *
+     * The boundary between two frames is endDraw(). A press + release
+     * inside the same frame is lost, on every vendor.
+     *
+     * Modifiers are keys like any other : Shift+E is isKeyDown(KEY_LEFT_SHIFT)
+     * and isKeyPressed(KEY_E), composed by the caller.
      */
     class IKeyboard {
       public:
@@ -25,8 +81,6 @@ namespace graphic {
     //      LAYOUT_QWERTY = 0,
     //      LAYOUT_AZERTY = 1,
     //    } Layout;
-
-        static const int MAX_KEYS = 87;
 
         /// Scan codes
         enum Keys {
@@ -91,9 +145,9 @@ namespace graphic {
           KEY_L,
           KEY_SEMICOLON,
           KEY_APOSTROPHE,
-          BACK_TICK,
+          KEY_BACKTICK,
           KEY_ENTER,
-          
+
           /// Line 4
           KEY_LEFT_SHIFT,
           KEY_BACKSLASH,
@@ -106,13 +160,14 @@ namespace graphic {
           KEY_M,
           KEY_COMMA,
           KEY_PERIOD,
-          KEY_DOT,
           KEY_SLASH,
           KEY_RIGHT_SHIFT,
           /// Line 5
           KEY_LEFT_ALT,
+          KEY_LEFT_SUPER,
           KEY_SPACE,
           KEY_RIGHT_ALT,
+          KEY_RIGHT_SUPER,
           KEY_RIGHT_CONTROL,
 
           /// KEYPAD
@@ -137,7 +192,7 @@ namespace graphic {
           KEY_LEFT,
           KEY_RIGHT,
           //end
-          KEY_LENGTH
+          KEY_COUNT
         };
 
         /**
@@ -146,12 +201,19 @@ namespace graphic {
         virtual ~IKeyboard() {}
 
         /**
-         * @brief Be careful, this function will check every key of the keyboard and return an array of keys that are pressed
-         * it's not recommended to use this function in a loop, use isKeyPressed() instead. it's efficient for key detection & binding. 
+         * @brief Every key HELD right now - like isKeyDown, without having
+         *        to name the key.
          *
-         * @return Keys* 
+         * A held key stays in the list every frame. For a debug overlay, a
+         * state readout, chord detection.
+         *
+         * Walks the whole keyboard : avoid in a hot loop, isKeyDown is a
+         * direct lookup.
+         *
+         * @return std::vector<Keys>
          */
-        virtual std::vector<Keys> whichKey() const = 0;
+        virtual std::vector<Keys> whichKeyDown() const = 0;
+
 
         /**
          * @brief Check if the key is pressed
@@ -184,10 +246,12 @@ namespace graphic {
          * @return bool
          */
         virtual bool isKeyUp(Keys key) const = 0;
-        
+
       private:
     };
 
 }
+
+/** @} */
 
 #endif /* !IKEYBOARD_HPP */

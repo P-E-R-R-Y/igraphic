@@ -3,6 +3,10 @@
 #include "../includes/IGraphic3Module.hpp"
 
 #include "graphic/DummyAnimationSet.hpp"
+#include "event/DummyGamepad.hpp"
+#include "event/DummyKeyboard.hpp"
+#include "event/DummyMouse.hpp"
+
 #include "graphic/DummyFont.hpp"
 #include "graphic/DummyMesh.hpp"
 #include "graphic/DummyModel.hpp"
@@ -23,6 +27,8 @@ public:
     const char *name() const override { return "DummyGraphic3"; }
 
     graphic::IWindow3 *createWindow(int32_t, int32_t, std::string) override { return new DummyWindow3(); }
+    graphic::IWindow2 *window() override { return nullptr; }
+
     void deleteWindow(graphic::IWindow2 *w) override { delete w; }
 
     graphic::ICamera *createCamera(Vector3f, Vector3f, float) override { return new DummyCamera(); }
@@ -36,6 +42,15 @@ public:
 
     graphic::IModel *createModel(graphic::IMesh *mesh) override { return new DummyModel(mesh); }
     void deleteModel(graphic::IModel *m) override { delete m; }
+
+    graphic::IKeyboard *createKeyboard(graphic::IWindow *) override { return new DummyKeyboard(); }
+    void deleteKeyboard(graphic::IKeyboard *k) override { delete k; }
+
+    graphic::IMouse *createMouse(graphic::IWindow *) override { return new DummyMouse(); }
+    void deleteMouse(graphic::IMouse *m) override { delete m; }
+
+    graphic::IGamepad *createGamepad(graphic::IWindow *) override { return new DummyGamepad(); }
+    void deleteGamepad(graphic::IGamepad *g) override { delete g; }
 
     graphic::ITexture *createTexture(std::string) override { return new DummyTexture(); }
     void deleteTexture(graphic::ITexture *t) override { delete t; }
