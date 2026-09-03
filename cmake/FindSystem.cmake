@@ -1,5 +1,5 @@
 set(name system)
-set(tag main)
+set(tag v1.0.0)
 
 # CHERCHER, puis seulement rapatrier. Ce module ne faisait que le dernier
 # tiers : il ne savait repondre qu'a "est-ce que J'AI deja telecharge ca ?",
