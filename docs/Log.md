@@ -3,6 +3,11 @@
 Markers: 🟢 added · 🔴 breaking · 🔵 fix · ⚪ internal or docs · 🟡 proposed
 in the plan, no code written yet.
 
+## v0.3.0
+
+- 🔴 Suit imodule v0.2.0 : `IModuleRegistry` n'existe plus, c'est
+  `IModuleManager` que les modules recoivent.
+
 ## v0.1.0
 
 - 🟢 `IGraphic2Module`, `IGraphic3Module` (which derives from the first)
