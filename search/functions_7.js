@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['setanimation_0',['setAnimation',['../classgraphic_1_1IModel.html#a47de0354b9ac20a06ca6d3c016659f9b',1,'graphic::IModel']]],
+  ['setanimations_1',['setAnimations',['../classgraphic_1_1IModel.html#afc5261597cf3bdd2801026e2a38f9b4a',1,'graphic::IModel']]],
+  ['setcolor_2',['setColor',['../classgraphic_1_1IPolygon.html#a98ad77360d6cf77f38aa39090c33128d',1,'graphic::IPolygon']]],
+  ['setcrop_3',['setCrop',['../classgraphic_1_1ISprite.html#a3021eebe9b8d39a2b0d052bb5ba2f810',1,'graphic::ISprite']]],
+  ['setfont_4',['setFont',['../classgraphic_1_1IText.html#a5341d013e692d23b736bb37f224ff96a',1,'graphic::IText']]],
+  ['setfontsize_5',['setFontSize',['../classgraphic_1_1IText.html#adf5bcb210926241091d0a2b02fb7d573',1,'graphic::IText']]],
+  ['setfov_6',['setFov',['../classgraphic_1_1ICamera.html#a1e5464620aa2329fd69799638a96cf6e',1,'graphic::ICamera']]],
+  ['setframe_7',['setFrame',['../classgraphic_1_1IModel.html#ad801bb04f9e96fc3801772883f2ab621',1,'graphic::IModel']]],
+  ['setframelimit_8',['setFrameLimit',['../classgraphic_1_1IWindow.html#a394ee76798cb7d4feae27af4da457d8f',1,'graphic::IWindow']]],
+  ['setframerange_9',['setFrameRange',['../classgraphic_1_1IModel.html#afab0227be523f0780a96c2dec33e9482',1,'graphic::IModel']]],
+  ['setmode_10',['setMode',['../classgraphic_1_1ICamera.html#af460a0f126d44121fe3a4e1e3814afab',1,'graphic::ICamera']]],
+  ['setmousevisibility_11',['setMouseVisibility',['../classgraphic_1_1IWindow.html#abf263dd1a1d443c40a03c86a1a9db6bd',1,'graphic::IWindow']]],
+  ['setposition_12',['setposition',['../classgraphic_1_1ISprite.html#ad9b0cccaeb5fe1be69a5343353fc1a9c',1,'graphic::ISprite::setPosition()'],['../classgraphic_1_1IWindow.html#acef3295ce21f0cef72ede21313dac3e0',1,'graphic::IWindow::setPosition()'],['../classgraphic_1_1ICamera.html#aa392b87cfda9f32adc166891cc342064',1,'graphic::ICamera::setPosition()'],['../classgraphic_1_1IText.html#ac193399fd967b4722a4280be1cdf5cfa',1,'graphic::IText::setPosition()'],['../classgraphic_1_1IPolygon.html#ae62246840ea4a413e6808a5ad4193c44',1,'graphic::IPolygon::setPosition()'],['../classgraphic_1_1IModel.html#ad1947d516a38fdf03be5b55e8e830216',1,'graphic::IModel::setPosition()'],['../classgraphic_1_1IMouse.html#a144058b6a10ee8e7e39b594b494a1ce3',1,'graphic::IMouse::setPosition()']]],
+  ['setprojection_13',['setProjection',['../classgraphic_1_1ICamera.html#a4a47bba4a97863daabe50f1bd600245d',1,'graphic::ICamera']]],
+  ['setrotation_14',['setrotation',['../classgraphic_1_1IModel.html#aa672ccfc19d6413776078d02d2905ca7',1,'graphic::IModel::setRotation()'],['../classgraphic_1_1ISprite.html#a5706582ed7b81bee47577c05c8d44f12',1,'graphic::ISprite::setRotation()'],['../classgraphic_1_1IText.html#a49d81f08b4cb9ffbd2518289cd3dfbbf',1,'graphic::IText::setRotation()']]],
+  ['setsize_15',['setsize',['../classgraphic_1_1IModel.html#afdb27e1a7055bfb51f96753ae4d58f09',1,'graphic::IModel::setSize()'],['../classgraphic_1_1ISprite.html#a54a7c57acc6ee32d15dd6851a12d3c0c',1,'graphic::ISprite::setSize()'],['../classgraphic_1_1IWindow.html#aa2dcb532dbca5d72e819cd69391ccf03',1,'graphic::IWindow::setSize()']]],
+  ['settarget_16',['setTarget',['../classgraphic_1_1ICamera.html#adebb12b0c883e30ba2fcff8f11d55120',1,'graphic::ICamera']]],
+  ['settext_17',['setText',['../classgraphic_1_1IText.html#a8be9b356bbc958eb3df2df592c1e1cb6',1,'graphic::IText']]],
+  ['settextcolor_18',['setTextColor',['../classgraphic_1_1IText.html#a8e30fbfca72636b123f6e0fd4565207d',1,'graphic::IText']]],
+  ['settexture_19',['setTexture',['../classgraphic_1_1IModel.html#a03be39db4662e4278201802ea0b877d4',1,'graphic::IModel']]],
+  ['setup_20',['setUp',['../classgraphic_1_1ICamera.html#a414a331224370784035a292a147d2351',1,'graphic::ICamera']]]
+];

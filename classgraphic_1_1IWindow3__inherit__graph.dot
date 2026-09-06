@@ -1,0 +1,12 @@
+digraph "graphic::IWindow3"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="graphic::IWindow3",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="A window that can also draw 3D. Extends IWindow2, so anything that only needs 2D can keep using it as..."];
+  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="graphic::IWindow2",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgraphic_1_1IWindow2.html",tooltip="A window that can draw 2D. Adds only the 2D drawing surface on top of IWindow's lifecycle/input."];
+  Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="graphic::IWindow",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgraphic_1_1IWindow.html",tooltip="Window lifecycle. No drawing here : every window, 2D-capable or not, has to open, close and pump its ..."];
+}
